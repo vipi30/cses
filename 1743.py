@@ -1,4 +1,3 @@
-import sys
 l = input() 
 #hay que tener en cuenta que hay que reordenar las letras de forma en la que me tengo que asegurar de que que las letras que aún quedan se pueden colocar sin repetirse dos veces seguidas.
 
@@ -9,11 +8,11 @@ contar = [0] * 26
 for letras in l: 
     contar[ord(letras)-65] += 1 #ord era lo de los números asociados a cada caracter. 65 es el asociado a la letra 'A', la que estariamos colocando en el índice 0. 
 
-limite = (len(l)+1) // 2 #-> para asegurar que no estamos ante un caso imposible.
+limite = (len(l)) // 2 #-> para asegurar que no estamos ante un caso imposible.
 
 if max(contar) > limite: 
     print(-1) 
-    sys.exit() #para que no siga ejecutando el resto.
+    exit #para que no siga ejecutando el resto.
 
 ans = [] 
 ultimo = -1 
@@ -43,6 +42,6 @@ for i in range(len(l)):
 
     if not posible: #si posible sigue siendo falso
         print(-1)
-        sys.exit() 
+        exit 
 
 print(''.join(ans))
