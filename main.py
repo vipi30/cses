@@ -42,27 +42,27 @@ def solve():
         j+=2
 
 
-        ordenado = sorted(list(coor))
-        r = {val: i+1 for i, val in enumerate(ordenado)}
-        m = len(ordenado)
-        bit = [0] * (m+1) #fenwick tree
-        bit_len = m.bit_length()
+    ordenado = sorted(list(coor))
+    r = {val: i+1 for i, val in enumerate(ordenado)}
+    m = len(ordenado)
+    bit = [0] * (m+1) #fenwick tree
+    bit_len = m.bit_length()
 
-        actualizar(r[0], k)
-        p.sort(key=lambda x: x[1])
+    actualizar(r[0], k)
+    p.sort(key=lambda x: x[1])
 
-        total = 0
+    total = 0
     
-        for s, e in p: 
-            i_s = r[s]
-            i_e = r[e]
-            d = query(i_s)
+    for s, e in p: 
+        i_s = r[s]
+        i_e = r[e]
+        d = query(i_s)
         
-            if d > 0: 
-                posicion = buscar(d)
-                actualizar(posicion, -1, )
-                actualizar(i_e, 1)
-                total += 1
+        if d > 0: 
+            posicion = buscar(d)
+            actualizar(posicion, -1, )
+            actualizar(i_e, 1)
+            total += 1
 
     print(total)
 
